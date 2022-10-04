@@ -65,6 +65,7 @@ const Navbar = ({ isAuth, setIsAuth }) => {
               to="/"
               className="md:ml-6 font-semibold hover:text-[#700a31] transition ease-in-out
                  duration-200 lg:ml-8 text-[18px] lg:text-xl my-5 md:my-0"
+                 onClick={navOpener}
             >
               Home
             </Link>
@@ -73,6 +74,7 @@ const Navbar = ({ isAuth, setIsAuth }) => {
                 to="/login"
                 className="md:ml-6 font-semibold hover:text-[#700a31] transition ease-in-out
                  duration-200 lg:ml-8 text-[18px] lg:text-xl my-5 md:my-0"
+                 onClick={navOpener}
               >
                 Login
               </Link>
@@ -82,6 +84,7 @@ const Navbar = ({ isAuth, setIsAuth }) => {
                   to="/createpost"
                   className="md:ml-6 font-semibold hover:text-[#700a31] transition ease-in-out
                  duration-200 lg:ml-8 text-[18px] lg:text-xl my-5 md:my-0"
+                 onClick={navOpener}
                 >
                   Create Post
                 </Link>

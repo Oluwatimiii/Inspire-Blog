@@ -11,7 +11,7 @@ const Hero = ({ isAuth, username }) => {
         <div className="w-full mx-auto px-7 md:px-10 max-w-[1200px]">
           {isAuth && (
             <div className="flex justify-between mx-auto">
-              <h1 className="font-semibold text-1xl pb-[3rem] text-white">
+              <h1 className="font-semibold max-w-[120px] md:max-w-[full] text-[12px] md:text-1xl pb-[3rem] text-white">
                 Welcome {username}
               </h1>
               <Time className="text-black" />

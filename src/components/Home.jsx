@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Hero from "./Hero";
 import { onAuthStateChanged } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 const Home = ({ isAuth, setIsLoading }) => {
   const [postList, setPostList] = useState([]);
@@ -16,31 +17,32 @@ const Home = ({ isAuth, setIsLoading }) => {
       setIsLoading(true);
       const data = await getDocs(postsCollection); // Getting the collection data
       setPostList(data.docs?.map((doc) => ({ ...doc.data(), id: doc.id })));
-      console.log(postList)
+      console.log(postList);
       setIsLoading(false);
     };
 
     getPosts();
   }, []);
 
-
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-        setNames(user.auth.currentUser?.email.charAt(0).toUpperCase() + user.auth.currentUser?.email.slice(1));
-    })
+      setNames(
+        user.auth.currentUser?.email.charAt(0).toUpperCase() +
+          user.auth.currentUser?.email.slice(1)
+      );
+    });
     return () => {
       unsubscribe();
-    }
-  }, [])
+    };
+  }, []);
 
   const deletePost = async (id) => {
     setIsLoading(true);
     const inspireDoc = doc(db, "posts", id);
 
     await deleteDoc(inspireDoc);
-      window.location.reload();
-      setIsLoading(false);
+    window.location.reload();
+    setIsLoading(false);
   };
 
   const copyPost = async (title) => {
@@ -58,9 +60,22 @@ const Home = ({ isAuth, setIsLoading }) => {
 
   return (
     <div className="bg-[#4e0a25] font-poppins">
-      <Hero isAuth={isAuth} username={names}/>
+      <Hero isAuth={isAuth} username={names} />
       <div className="w-full mx-auto px-7 md:px-10 max-w-[1200px] py-[5rem] font-lora">
-        <h1 className="font-bold text-center text-white text-2xl md:text-4xl pb-10 md:pb-12">LATEST POSTS</h1>
+        <h1 className="font-bold text-center text-white text-2xl md:text-4xl pb-10 md:pb-12">
+          LATEST POSTS
+        </h1>
+        {isAuth && (
+          <div className="flex items-center justify-center space-x-4 pb-8">
+            <Link
+              to="/createpost"
+              className="bg-[#b60f4f] text-white py-2 px-6 rounded md:ml-8 hover:bg-[#7a0834]
+               transition-all ease duration-200"
+            >
+              Create a post
+            </Link>
+          </div>
+        )}
         <div className="flex flex-wrap justify-center lg:justify-between items-start mx-auto">
           {postList.map((post) => {
             return (

@@ -70,7 +70,8 @@ const CreatePost = ({ isAuth, setIsLoading }) => {
           <button
             onClick={createPost}
             className="mt-5 border-none rounded-sm text-md w-full font-semibold
-             cursor-pointer bg-white text-[#4e0a25] px-2 py-2"
+             cursor-pointer bg-white text-[#4e0a25] px-2 py-2
+             hover:font-bold transition-all duration-300 ease-in"
           >
             Create Post
           </button>
