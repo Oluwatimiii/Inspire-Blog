@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero {
+  background-image: url("../src/assets/heroBg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: hsl(240, 11%, 69%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(220, 1%, 43%);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(228, 8%, 54%);
+}
+
+
+.loader {
+  animation: myAnim 3s ease-in-out infinite alternate forwards;
+}
+
+@keyframes myAnim {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+    transform: translateY(-25px);
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  40% {
+    animation-timing-function: ease-in;
+    transform: translateY(-14px);
+  }
+
+  65% {
+    animation-timing-function: ease-in;
+    transform: translateY(-12px);
+  }
+
+  82% {
+    animation-timing-function: ease-in;
+    transform: translateY(-6px);
+  }
+
+  93% {
+    animation-timing-function: ease-in;
+    transform: translateY(-4px);
+  }
+
+  25%,
+  55%,
+  75%,
+  87% {
+    animation-timing-function: ease-out;
+    transform: translateY(0px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
