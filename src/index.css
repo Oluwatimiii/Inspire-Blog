@@ -14,7 +14,7 @@ html {
 }
 
 /* SCROLL BAR */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0.6rem;
   border-radius: 0.5rem;
   background-color: hsl(240, 11%, 69%);
@@ -27,7 +27,7 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: hsl(228, 8%, 54%);
-}
+} */
 
 
 .loader {
