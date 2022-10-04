@@ -30,6 +30,7 @@ const Navbar = ({ isAuth, setIsAuth }) => {
     signOut(auth).then(() => {
       localStorage.clear();
       setIsAuth(false);
+      setOpenNav(!openNav)
       navigate("/login");
     });
   };
@@ -47,25 +48,23 @@ const Navbar = ({ isAuth, setIsAuth }) => {
 
           <div
             onClick={navOpener}
-            className="text-2xl absolute right-7 top-5 cursor-pointer md:hidden transition-all ease-in duration-500"
+            className="text-2xl p-2 absolute right-7 top-3 cursor-pointer md:hidden transition-all ease-in duration-500"
           >
             {openNav ? <FaTimes /> : <FaBars />}
           </div>
 
           <ul
             className={`flex flex-col md:flex-row items-center z-[-1] justify-center text-center pb-20 md:pb-0 
-            absolute top-0 left-0 md:static ${
-              openNav ? "bg-[#0c0d0ef1] text-white" : "bg-white"
-            } 
+            absolute top-0 left-0 md:static bg-black md:bg-white text-white md:text-black
              md:z-auto w-full md:w-auto h-screen md:h-auto ${
                openNav ? "top-[60px] opacity-100" : "top-[-700px] opacity-0"
-             } md:opacity-100 `}
+             } md:opacity-100`}
           >
             <Link
               to="/"
-              className="md:ml-6 font-semibold hover:text-[#700a31] transition ease-in-out
+              className="md:ml-6 font-semibold hover:text-[#700a31] transition ease-in
                  duration-200 lg:ml-8 text-[18px] lg:text-xl my-5 md:my-0"
-                 onClick={navOpener}
+              onClick={() => setOpenNav(!openNav)}
             >
               Home
             </Link>
@@ -74,7 +73,7 @@ const Navbar = ({ isAuth, setIsAuth }) => {
                 to="/login"
                 className="md:ml-6 font-semibold hover:text-[#700a31] transition ease-in-out
                  duration-200 lg:ml-8 text-[18px] lg:text-xl my-5 md:my-0"
-                 onClick={navOpener}
+                onClick={() => setOpenNav(!openNav)}
               >
                 Login
               </Link>
@@ -84,7 +83,7 @@ const Navbar = ({ isAuth, setIsAuth }) => {
                   to="/createpost"
                   className="md:ml-6 font-semibold hover:text-[#700a31] transition ease-in-out
                  duration-200 lg:ml-8 text-[18px] lg:text-xl my-5 md:my-0"
-                 onClick={navOpener}
+                 onClick={() => setOpenNav(!openNav)}
                 >
                   Create Post
                 </Link>
@@ -98,8 +97,10 @@ const Navbar = ({ isAuth, setIsAuth }) => {
                 </Link>
               </>
             )}
-            <div className="mt-4 md:mt-0">
-              <Link to="/about"><Button>About Us</Button></Link>
+            <div className="mt-4 md:mt-0" onClick={() => setOpenNav(!openNav)}>
+              <Link to="/about">
+                <Button>About Us</Button>
+              </Link>
             </div>
           </ul>
         </div>
