@@ -27,7 +27,6 @@ const Home = ({ isAuth, setIsLoading }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user.auth.currentUser?.email)
         setNames(user.auth.currentUser?.email.charAt(0).toUpperCase() + user.auth.currentUser?.email.slice(1));
     })
     return () => {

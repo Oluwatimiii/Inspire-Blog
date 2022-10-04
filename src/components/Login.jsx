@@ -44,14 +44,14 @@ const Login = ({ setIsAuth }) => {
   };
 
   return (
-    <div className="w-screen bg-[#700a31] h-full flex flex-col items-center justify-center font-poppins">
+    <div className="bg-[#700a31] h-full flex flex-col items-center justify-center font-poppins">
       <div className="pt-[4.6rem] mx-auto px-7 md:px-10">
-        <div className="rounded bg-white md:w-[400px] px-8 py-11">
+        <div className="rounded bg-white w-[350px] md:w-[400px] px-8 py-11">
           <h1 className="font-bold text-3xl">Sign In</h1>
           <p className="text-[12px] text-gray-500 pt-2">
             Enter your credentials to access your account.
           </p>
-          <div className="max-w-[400px] pt-10">
+          <div className="pt-10">
             <form  onSubmit={formHandlers}>
               {errorsValue && <p className="text-red-600 text-[11px] bg-red-100 p-2 rounded mb-2">{errorsValue}</p>}
               <div className="flex flex-col space-y-2">
