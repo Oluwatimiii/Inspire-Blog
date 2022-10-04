@@ -36,12 +36,12 @@ const SignUp = () => {
   return (
     <div className="bg-[#700a31] h-full flex flex-col items-center justify-center font-poppins">
       <div className="pt-[4.6rem] mx-auto px-7 md:px-10">
-        <div className="rounded bg-white md:w-[400px] px-8 py-11 mx-auto">
+        <div className="rounded bg-white max-w-[330px] md:max-w-full md:w-[400px] px-8 py-11 mx-auto">
           <h1 className="font-bold text-3xl">Inspire someone today!</h1>
           <p className="text-[12px] text-gray-500 pt-2">
            Sign up on inspire to create/get daily inspirational posts.
           </p>
-          <div className="w-full pt-5">
+          <div className="pt-5">
             <form
               onSubmit={formHandler}
             >
