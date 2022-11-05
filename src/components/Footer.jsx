@@ -14,7 +14,7 @@ const Footer = () => {
             .
           </span>
         </h2>
-        <p>&copy; 2022.</p>
+        <p>&copy; 2022</p>
       </div>
     </div>
   );
